@@ -1,9 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-    </body>
+<head>
+    <title>www.MandusPattys.se</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<main>
+    <h1> Hello and welcome to Gôrgoa burgare  </h1>
+    <section>
+        <h2>Här finns det burgare</h2>
+                Välj en burgare din kanalj
+    </section>
+    <section>
+        <table>
+             <thead>
+                <tr>
+                    <th>Möla allt du kan -burgaren</th>
+                    <th>Bamba-burgarn</th>
+                    <th>Abdrovinschen </th>
+                </tr>
+            </thead>
+         <tbody>
+            <tr>
+                <td> <img src="mcfatty.jpeg" alt="The McFatty" title="The McFatty" style="width:100%"> </td>
+                <td> <img src="candyburg.jpeg" alt="The goldenBoy" title="The GoldenBoy" style="width:90%"> </td>
+                <td> <img src="Halloumiburg.jpeg" alt="The CheesyGuac" title="The CheesyGuac" style="width:90%"> </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li> Beef</li>
+                        <li> Brioche bread</li>
+                        <li>Gôr gött Bacon </li>
+                        <li>Contains gluten, lactose  </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li> Green slime </li>
+                        <li> Beige slime</li>
+                        <li> Red slime  </li>
+                        <li>Yellow slime</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li> Halloumi</li>
+                        <li> Brioche bread</li>
+                        <li>Guaccamole </li>
+                        <li>Contains gluten, lactose  </li>
+                    </ul>
+                </td>
+            </tr>
+         </tbody>
+
+        </table>
+    </section>
+
+<section>
+<h2>Delivery information</h2>
+</section>
+    Släng in ditt namn å adress här änna
+    <section id="contact">
+        <form>
+            <p>
+                <label for="firstname">Name</label><br>
+                <input type="text" id="firstname" name="fn" required="required" placeholder="First and Last name ">
+            </p>
+            <p>
+                <label for="email">Email</label><br>
+                <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+            <p>
+                <label for="street">Street</label><br>
+                <input type="text" id="street" name="sn" required="required" placeholder="Streetname">
+            </p>
+            <p>
+                <label for="streetnumb">Streetnumber</label><br>
+                <input type="number" id="streetnumb" name="snumb" required="required" placeholder="Street number">
+            </p>
+            <p>
+            <label for="payment">Payment</label><br>
+            <select id="payment" name="rcp">
+                <option>Credit/debit Card</option>
+                <option>Svish</option>
+                <option>Cash at door</option>
+            </select>
+        </p>
+            <p>
+                <label for="stad">Ursprung</label><br>
+                <select id="stad" name="rcp">
+                    <option>Västra Götaland</option>
+                    <option>Annat pissigt Landskap </option>
+                </select>
+            </p>
+            <p>
+                <input type="radio" name="gender" value="male"> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other
+            </p>
+        </form>
+    </section>
+    <button
+            type="submit"><img src="gbgicon.png" style="width: 0.3in"> Place my order
+    </button>
+</main>
+
+</body>
+<hr>
+<footer>GBG-Burgare</footer>
 </html>
