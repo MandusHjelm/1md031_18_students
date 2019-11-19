@@ -1,0 +1,58 @@
+.HeaderpicContainer{
+    position: relative;
+    color: whitesmoke;
+    opacity: 0.9;
+}
+.Headertext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+
+}
+body {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    background-image: url("../img/bilderburg/pommesbakgrund.jpg") ;
+}
+.BurgarePicWrapper{
+    display: grid;
+    grid-gap: 0.1em;
+    grid-template-columns: repeat(auto-fit, 14em);
+    font-size: 1.8em;
+}
+
+.burger-item img {
+    height: 220px;
+    overflow: hidden;
+    width: 100%;
+}
+.burger-item {
+    font-size: 1.4em;
+
+}
+.informationsDel1{
+    color: black;
+    font-size: 2em;
+    text-align: left;
+}
+#contact{
+    background-color: aqua;
+    text-align: left;
+    width: 20%;
+}
+button:hover{
+    background-color: #4CAF50;
+    color: white;
+    cursor: copy;
+}
+button {
+    border: 2px solid peachpuff;
+    border-radius: 20px;
+    font-size: 1em;
+
+
+}
