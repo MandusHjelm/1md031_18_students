@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml", xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/script.js" defer></script>
     <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="js/js_script.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    <!--<script type="text/javascript" src="js/menu.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>www.MandusPattys.se</title>
     <meta charset="utf-8"/>
     <div class="HeaderpicContainer">
@@ -13,41 +15,30 @@
 </head>
 <body>
 <main>
-    <section>
+    <section >
         <h2>Här finns det burgare </h2>
     </section>
-    <div class="BurgarePicWrapper">
-        <div class="Burgare fatty">
-            <img src="img/bilderburg/mcfatty.jpeg" alt="The McFatty" title="The McFatty">
-        </div>
-        <div class="Burgare bamba">
-            <img src="img/bilderburg/godishamburgare.jpg" alt="The goldenBoy" title="The GoldenBoy" >
-        </div>
-        <div class="Burgare halloumi">
-            <img src="img/bilderburg/Halloumiburg.jpeg" alt="The CheesyGuac" title="The CheesyGuac">
-        </div>
-        <div class="Namnburg fattynamn">Möla allt du kan -burgaren </div>
-        <div class="Namnburg Bamb">Bamba-burgarn </div>
-        <div class="Namnburg abrovin">Abdrovinschen</div>
-        <div class="ingredienser fattyIng" >
-            <li> Beef</li>
-            <li> Brioche bread</li>
-            <li>Gôr gött Bacon</li>
-            <li>Contains gluten, lactose</li>
-        </div>
-        <div class="ingredienser bambaIng ">
-            <li> Green slime</li>
-            <li> Beige slime</li>
-            <li> Red slime</li>
-            <li> Yellow slime</li>
-        </div>
-        <div class="ingredienser halloumiIngr">
-            <li> Halloumi</li>
-            <li> Brioche bread</li>
-            <li>Guaccamole</li>
-            <li>Contains gluten, lactose</li>
-        </div>
+  <div class="BurgarePicWrapper" id ="myID">
 
+          <div  v-for="burger in burgersVue" class="burger-item">
+              {{burger.name}}
+              <img v-bind:src = 'burger.burgImages'>
+              <ul>
+                  <li v-for="ingredient in burger.ingredients">{{ingredient}}</li>
+              </ul>
+              <ul>
+                  <li v-if="burger.gluten">
+                      Innehåller Gluten </li>
+                  <li  v-if="burger.lacto">
+                      Innehåller Laktos
+                  </li>
+              </ul>
+          </div>
+  </div>
+    <div id="example-1">
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The but been clicked {{ counter }} times.
+        </p>
     </div>
 
     <section class=informationsDel1>
@@ -56,8 +47,8 @@
     <section id="contact">
         <form>
             <p>
-                <label for="firstname">Name</label><br>
-                <input type="text" id="firstname" name="fn" required="required" placeholder="First and Last name ">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="fn" required="required" placeholder="First and Last name ">
             </p>
             <p>
                 <label for="email">Email</label><br>
@@ -95,9 +86,14 @@
             </p>
         </form>
     </section>
+
+   <div class="Orderlist" id="orders">
+    <h1> Din order</h1>
     <button
-            type="submit"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon"> Place my order
+            type="submit" id="orderButton" v-on:click="markDone (key)"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon"> Place my order
     </button>
+   </div>
+
 </main>
 </body>
 <hr>
