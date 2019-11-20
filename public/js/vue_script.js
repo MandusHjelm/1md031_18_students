@@ -1,37 +1,31 @@
 //Vue elementet sm skickar vidare från JS script
 var vm = new Vue({
-    el: '#myID',
+    el: '#allVue',
     data: {
         arbitraryVariableName: 'Välj en burgare',
         burgersVue: Burgare,
+        counter: 0,
+        customerName:'', email:'', street:'', streetnumb:'',payoption:'',gender:'',
+        checkburg:false,
+    },
+        methods: {
+            markDone: function() {
+                console.log("Hej hemskt mycket hej"),
+                console.log(contaktuppgifter),
+                contaktuppgifter.push(this.customerName),contaktuppgifter.push(this.email), contaktuppgifter.push(this.street),
+                contaktuppgifter.push(this.streetnumb), contaktuppgifter.push(this.payoption), contaktuppgifter.push(this.gender)
+                valdaBurgare.push(this.Burgare.name)
+                console.log(valdaBurgare)
 
-    }
-})
-/*var shoppinglist = new Vue({
-    el: '#orders',
-    data:{burgersVueOrder: Burgare,},
-    methods: {
-        buyButon: function() {
-            this.burgersVueOrder.name
+            }
         }
-    }
-});*/
-
-var example1 = new Vue({
-    el: '#example-1',
-    data: {
-        counter: 0
-    }
-})
-
-
-
-var Beställknapp = new Vue({
-    el: '#orders',
-    methods: {
-        markDone: function() {
-            console.log("jdhfbds")
-            console.log(contaktuppgifter)
-        }
-    }
 });
+
+var contaktuppgifter=[];
+var valdaBurgare=[];
+/*
+function burgerChosen(namnfun) {
+    valdaBurgare.push(namnfun);
+    console.log(namnfun)
+}
+*/
