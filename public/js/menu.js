@@ -1,5 +1,5 @@
 //Här skapas menyn
-var food = [
+var Burgare = [
     {
         "name": "Maxad Burgare",
         "price": 70,
@@ -7,7 +7,8 @@ var food = [
         "lactose": false,
         "gluten": true,
         "ingredients":['Biff 150g','Sallad','Tomat','Bacon','Röd lök','Sås'],
-        "burgImages": "img/bilderburg/maxBurgare.jpg"
+        "burgImages": "img/bilderburg/maxBurgare.jpg",
+        "checkburg": false,
     },
     {
         "name": "Ostburgare",
@@ -17,6 +18,7 @@ var food = [
         "gluten": true,
         "ingredients":['Biff 200g','Ost','Brioche bröd '],
         "burgImages": "img/bilderburg/jettz_cheese_ny-rec.jpg",
+        "checkburg": false,
     },
     {
     "name": "Möla burgaren",
@@ -26,6 +28,7 @@ var food = [
         "gluten": false,
         "ingredients":['Biff 150g','tomat','Bacon','Sallad'],
         "burgImages": "img/bilderburg/mcfatty.jpeg",
+        "checkburg": false,
 },{
         "name": "Bamba burgaren",
         "price":25,
@@ -34,6 +37,7 @@ var food = [
         "gluten": false,
         "ingredients":['Green slime','Beige slime','Red slime','Yellow slime'],
         "burgImages": "img/bilderburg/candyburg.jpeg",
+        "checkburg": false,
     },{
         "name": "Vänsterburgaren",
         "price":85,
@@ -42,6 +46,7 @@ var food = [
         "gluten": false,
         "ingredients":['Halloumi','Brioche bread','Guaccamole'],
         "burgImages": "img/bilderburg/Halloumiburg.jpeg",
+        "checkburg": false,
     }
 ]
 
