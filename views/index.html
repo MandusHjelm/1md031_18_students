@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  <!--cd WebstormProjects/1md031_18_students/  node app.js-->
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml", xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://vuejs.org/js/vue.js"></script>
-    <script src="js/js_script.js" defer></script>
     <script src="js/vue_script.js" defer></script>
-    <!--<script type="text/javascript" src="js/menu.js"></script>-->
+    <script src="js/js_script.js" defer></script>
+    <script type="text/javascript" src="js/menu.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>www.MandusPattys.se</title>
     <meta charset="utf-8"/>
@@ -15,31 +15,35 @@
 </head>
 <body>
 <main>
+    <div id="allVue">
     <section >
         <h2>Här finns det burgare </h2>
     </section>
-  <div class="BurgarePicWrapper" id ="myID">
+  <div class="BurgarePicWrapper">
 
           <div  v-for="burger in burgersVue" class="burger-item">
               {{burger.name}}
               <img v-bind:src = 'burger.burgImages'>
               <ul>
                   <li v-for="ingredient in burger.ingredients">{{ingredient}}</li>
-              </ul>
-              <ul>
                   <li v-if="burger.gluten">
                       Innehåller Gluten </li>
                   <li  v-if="burger.lacto">
                       Innehåller Laktos
                   </li>
+
+                  <input type="checkbox" id="checkbox" v-model="checkburg">
+                  <label for="checkbox" >
+                      {{checkburg.valueOf(this) }}
+                     <!-- <script> burgerChosen(burger.name)</script>-->
+                  </label>
+
               </ul>
           </div>
   </div>
-    <div id="example-1">
         <button v-on:click="counter += 1">Add 1</button>
         <p>The but been clicked {{ counter }} times.
         </p>
-    </div>
 
     <section class=informationsDel1>
         <h2>Delivery information</h2>
@@ -47,41 +51,35 @@
     <section id="contact">
         <form>
             <p>
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="fn" required="required" placeholder="First and Last name ">
+                <label>Name</label><br>
+                <input v-model="customerName" id= "name" type="text" required="required" placeholder="First and Last name ">
             </p>
             <p>
-                <label for="email">Email</label><br>
-                <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
+                <label> Email</label><br>
+                <input v-model="email" type="text" id="email" required="required" placeholder="E-mail address">
             </p>
             <p>
-                <label for="street">Street</label><br>
-                <input type="text" id="street" name="sn" required="required" placeholder="Streetname">
+                <label>Streetname</label><br>
+                <input v-model="street" type="text" id=' street' required="required" placeholder="Streetname">
             </p>
             <p>
-                <label for="streetnumb">Streetnumber</label><br>
-                <input type="number" id="streetnumb" name="snumb" required="required" placeholder="Street number">
+                <label>Streetnumber</label><br>
+                <input v-model.number="streetnumb"  type="number" id="streetnumb" required="required" placeholder="Street number">
             </p>
             <p>
-                <label for="payment">Payment</label><br>
-                <select id="payment" name="rcp">
+                <label>Payment</label><br>
+                <select v-model="payoption" id="paymeth">
+                    <option disabled value="">Please select one</option>
                     <option>Credit/debit Card</option>
                     <option>Svish</option>
                     <option>Cash at door</option>
                 </select>
             </p>
             <p>
-                <label for="stad">Ursprung</label><br>
-                <select id="stad" name="rcp">
-                    <option>Västra Götaland</option>
-                    <option>Annat pissigt Landskap</option>
-                </select>
-            </p>
-            <p>
                 <label> Gender<br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <input type="radio" name="gender" value="other"> Other
+                <input v-model="gender" type="radio" name="gender" value="male"> Male<br>
+                <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
+                <input v-model="gender" type="radio" name="gender" value="other"> Other
                 </label>
             </p>
         </form>
@@ -92,7 +90,8 @@
     <button
             type="submit" id="orderButton" v-on:click="markDone (key)"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon"> Place my order
     </button>
-   </div>
+    </div>
+    </div>
 
 </main>
 </body>
