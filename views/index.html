@@ -31,12 +31,7 @@
                   <li  v-if="burger.lacto">
                       Innehåller Laktos
                   </li>
-
-                  <input type="checkbox" id="checkbox" v-model="checkburg">
-                  <label for="checkbox" >
-                      {{checkburg.valueOf(this) }}
-                     <!-- <script> burgerChosen(burger.name)</script>-->
-                  </label>
+                  <input type="checkbox" id="checkbox" v-model="checkburg" v-bind:value="burger.checkvalue"> <!--<input type="checkbox" id="checkbox"  v-bind:value="trycktBurg" :input="checkburg.push(burger.name)"> v-model="checkburg"-->
 
               </ul>
           </div>

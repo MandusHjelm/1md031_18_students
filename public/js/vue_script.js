@@ -6,7 +6,7 @@ var vm = new Vue({
         burgersVue: Burgare,
         counter: 0,
         customerName:'', email:'', street:'', streetnumb:'',payoption:'',gender:'',
-        checkburg:false,
+        checkburg:[ ],
     },
         methods: {
             markDone: function() {
@@ -14,15 +14,16 @@ var vm = new Vue({
                 console.log(contaktuppgifter),
                 contaktuppgifter.push(this.customerName),contaktuppgifter.push(this.email), contaktuppgifter.push(this.street),
                 contaktuppgifter.push(this.streetnumb), contaktuppgifter.push(this.payoption), contaktuppgifter.push(this.gender)
-                valdaBurgare.push(this.Burgare.name)
-                console.log(valdaBurgare)
+                checkburg.push(this.checkvalue)
+                console.log(checkburg)
 
             }
         }
 });
 
 var contaktuppgifter=[];
-var valdaBurgare=[];
+var checkburg=[];
+
 /*
 function burgerChosen(namnfun) {
     valdaBurgare.push(namnfun);

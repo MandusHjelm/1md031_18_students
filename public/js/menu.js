@@ -8,7 +8,8 @@ var Burgare = [
         "gluten": true,
         "ingredients":['Biff 150g','Sallad','Tomat','Bacon','Röd lök','Sås'],
         "burgImages": "img/bilderburg/maxBurgare.jpg",
-        "checkburg": false,
+        "checkburgMenu": false,
+        "checkvalue": "burgare1 vald",
     },
     {
         "name": "Ostburgare",
@@ -18,9 +19,10 @@ var Burgare = [
         "gluten": true,
         "ingredients":['Biff 200g','Ost','Brioche bröd '],
         "burgImages": "img/bilderburg/jettz_cheese_ny-rec.jpg",
-        "checkburg": false,
+        "checkburgMenu": false,
+        "checkvalue": "burgare2 vald ",
     },
-    {
+   /* {
     "name": "Möla burgaren",
         "price":85,
         "kCal": 850,
@@ -47,6 +49,6 @@ var Burgare = [
         "ingredients":['Halloumi','Brioche bread','Guaccamole'],
         "burgImages": "img/bilderburg/Halloumiburg.jpeg",
         "checkburg": false,
-    }
+    }*/
 ]
 
