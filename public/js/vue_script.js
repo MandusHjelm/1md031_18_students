@@ -6,23 +6,29 @@ var vm = new Vue({
         burgersVue: Burgare,
         counter: 0,
         customerName:'', email:'', street:'', streetnumb:'',payoption:'',gender:'',
-        checkburg:[ ],
+        checkburg:[],
+        burgerOrder: " ",
+        //iFylldContact: false,
     },
         methods: {
             markDone: function() {
-                console.log("Hej hemskt mycket hej"),
+                console.log("Utskrift från vue vid gbg-knapp tryck"),
                 console.log(contaktuppgifter),
                 contaktuppgifter.push(this.customerName),contaktuppgifter.push(this.email), contaktuppgifter.push(this.street),
-                contaktuppgifter.push(this.streetnumb), contaktuppgifter.push(this.payoption), contaktuppgifter.push(this.gender)
-                checkburg.push(this.checkvalue)
-                console.log(checkburg)
-
+                contaktuppgifter.push(this.streetnumb), contaktuppgifter.push(this.payoption), contaktuppgifter.push(this.gender),
+                this.burgerOrder= this.checkburg+"  "+ this.customerName
+                console.log(this.burgerOrder)
             }
         }
 });
-
+//function för att göra en alert function senare
 var contaktuppgifter=[];
-var checkburg=[];
+var iFylldContact=false;
+for (let i = 0; i < contaktuppgifter.length; i++){
+    if (contaktuppgifter[i]>1){
+        iFylldContact=true}
+    else {iFylldContact=false}
+}
 
 /*
 function burgerChosen(namnfun) {

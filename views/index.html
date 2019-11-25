@@ -31,7 +31,7 @@
                   <li  v-if="burger.lacto">
                       Innehåller Laktos
                   </li>
-                  <input type="checkbox" id="checkbox" v-model="checkburg" v-bind:value="burger.checkvalue"> <!--<input type="checkbox" id="checkbox"  v-bind:value="trycktBurg" :input="checkburg.push(burger.name)"> v-model="checkburg"-->
+                  <input type="checkbox" id="checkbox" v-model="checkburg" v-bind:value="burger.name"> <!--<input type="checkbox" id="checkbox"  v-bind:value="trycktBurg" :input="checkburg.push(burger.name)"> v-model="checkburg"-->
 
               </ul>
           </div>
@@ -80,12 +80,18 @@
         </form>
     </section>
 
-   <div class="Orderlist" id="orders">
-    <h1> Din order</h1>
+   <div>
     <button
             type="submit" id="orderButton" v-on:click="markDone (key)"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon"> Place my order
     </button>
     </div>
+        <div class="orderedItems">
+            <h1>Din order</h1>
+
+            <b>{{burgerOrder}}</b>
+
+        </p>
+        </div>
     </div>
 
 </main>

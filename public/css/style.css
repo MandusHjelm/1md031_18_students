@@ -24,7 +24,11 @@ body {
     grid-template-columns: repeat(auto-fit, 14em);
     font-size: 1.8em;
 }
+#checkbox{
+    width: 3em;
+    height: 3em;
 
+}
 .burger-item img {
     height: 220px;
     overflow: hidden;
