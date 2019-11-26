@@ -1,44 +1,53 @@
 <!DOCTYPE html>  <!--cd WebstormProjects/1md031_18_students/  node app.js-->
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml", xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" , xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
     <script src="js/vue_script.js" defer></script>
     <script src="js/js_script.js" defer></script>
     <script type="text/javascript" src="js/menu.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/deli-very.css">
+    <script src="/vue/vue.js" defer></script>
+
+    <!--  <script src="js/deli-very.js" defer></script>-->
+
     <title>www.MandusPattys.se</title>
     <meta charset="utf-8"/>
     <div class="HeaderpicContainer">
         <img src="img/andralongHeader.jpg" alt="Header Andra long" title="Andralong" style="width:100%">
-        <div class="Headertext"> Hello and welcome to Gôrgoa burgare </div>
+        <div class="Headertext"> Hello and welcome to Gôrgoa burgare</div>
     </div>
 </head>
 <body>
-<main>
-    <div id="allVue">
-    <section >
+<main id="allVue">
+
+    <section>
         <h2>Här finns det burgare </h2>
     </section>
-  <div class="BurgarePicWrapper">
+    <div class="BurgarePicWrapper">
 
-          <div  v-for="burger in burgersVue" class="burger-item">
-              {{burger.name}}
-              <img v-bind:src = 'burger.burgImages'>
-              <ul>
-                  <li v-for="ingredient in burger.ingredients">{{ingredient}}</li>
-                  <li v-if="burger.gluten">
-                      Innehåller Gluten </li>
-                  <li  v-if="burger.lacto">
-                      Innehåller Laktos
-                  </li>
-                  <input type="checkbox" id="checkbox" v-model="checkburg" v-bind:value="burger.name"> <!--<input type="checkbox" id="checkbox"  v-bind:value="trycktBurg" :input="checkburg.push(burger.name)"> v-model="checkburg"-->
+        <div v-for="burger in burgersVue" class="burger-item">
+            {{burger.name}}
+            <img v-bind:src='burger.burgImages'>
+            <ul>
+                <li v-for="ingredient in burger.ingredients">{{ingredient}}</li>
+                <li v-if="burger.gluten">
+                    Innehåller Gluten
+                </li>
+                <li v-if="burger.lacto">
+                    Innehåller Laktos
+                </li>
+                <input type="checkbox" id="checkbox" v-model="checkburg" v-bind:value="burger.name">
+                <!--<input type="checkbox" id="checkbox"  v-bind:value="trycktBurg" :input="checkburg.push(burger.name)"> v-model="checkburg"-->
 
-              </ul>
-          </div>
-  </div>
-        <button v-on:click="counter += 1">Add 1</button>
-        <p>The but been clicked {{ counter }} times.
-        </p>
+            </ul>
+        </div>
+    </div>
+    <button v-on:click="counter += 1">Add 1</button>
+    <p>The but been clicked {{ counter }} times.
+    </p>
 
     <section class=informationsDel1>
         <h2>Delivery information</h2>
@@ -47,20 +56,21 @@
         <form>
             <p>
                 <label>Name</label><br>
-                <input v-model="customerName" id= "name" type="text" required="required" placeholder="First and Last name ">
+                <input v-model="customerName" id="name" type="text" required="required"
+                       placeholder="First and Last name ">
             </p>
             <p>
                 <label> Email</label><br>
                 <input v-model="email" type="text" id="email" required="required" placeholder="E-mail address">
             </p>
-            <p>
-                <label>Streetname</label><br>
-                <input v-model="street" type="text" id=' street' required="required" placeholder="Streetname">
-            </p>
-            <p>
-                <label>Streetnumber</label><br>
-                <input v-model.number="streetnumb"  type="number" id="streetnumb" required="required" placeholder="Street number">
-            </p>
+            <!--    <p>
+                    <label>Streetname</label><br>
+                    <input v-model="street" type="text" id=' street' required="required" placeholder="Streetname">
+                </p>
+                <p>
+                    <label>Streetnumber</label><br>
+                    <input v-model.number="streetnumb"  type="number" id="streetnumb" required="required" placeholder="Street number">
+                </p>   -->
             <p>
                 <label>Payment</label><br>
                 <select v-model="payoption" id="paymeth">
@@ -72,28 +82,48 @@
             </p>
             <p>
                 <label> Gender<br>
-                <input v-model="gender" type="radio" name="gender" value="male"> Male<br>
-                <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
-                <input v-model="gender" type="radio" name="gender" value="other"> Other
+                    <input v-model="gender" type="radio" name="gender" value="male"> Male<br>
+                    <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
+                    <input v-model="gender" type="radio" name="gender" value="other"> Other
                 </label>
             </p>
         </form>
     </section>
-
-   <div>
-    <button
-            type="submit" id="orderButton" v-on:click="markDone (key)"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon"> Place my order
-    </button>
-    </div>
-        <div class="orderedItems">
-            <h1>Din order</h1>
-
-            <b>{{burgerOrder}}</b>
-
-        </p>
+    <section>
+        <h1> Click in the map! </h1>
+        <div class="view-box">
+            <div id="dots" v-on:click="addOrder">
+                <div
+                        v-for="(order, key) in orders"
+                        v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                    {{key}}
+                </div>
+            </div>
         </div>
+        <div>
+            <button
+                    type="submit" id="orderButton" v-on:click="markDone (key)" v-bind:disabled="formIncomplete"
+                    v-if="checkburg.length>0"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon">
+                Place my order
+            </button>
+        </div>
+
+    </section>
+    <div id="fittneck" v-if="checkburg.length>0">
+        <h4>Din order </h4>
+        <ul>
+            <li v-for="index in burgerOrder ">
+                {{index}}<br></li>
+        </ul>
+        <h4> Dina kontaktuppgifter </h4>
+        {{this.customerName}}<br>
+        {{this.email}}<br>
+        {{this.payoption}}<br>
+        {{this.gender}}<br>
     </div>
 
+
+    </div>
 </main>
 </body>
 <hr>

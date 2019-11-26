@@ -57,6 +57,16 @@ button {
     border: 2px solid peachpuff;
     border-radius: 20px;
     font-size: 1em;
+}
 
-
+button:disabled {
+    opacity: 0.5;
+    border: 2px solid peachpuff;
+    border-radius: 20px;
+    font-size: 1em;
+}
+#fittneck{
+    font-size: 2.5em;
+    text-align: left;
+    background-color: whitesmoke;
 }
