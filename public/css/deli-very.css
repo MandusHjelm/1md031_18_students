@@ -19,13 +19,13 @@ body {
 	background-repeat: no-repeat;
 	width:1920px;
 	height: 1078px;
-	cursor: crosshair;
+	cursor: pointer;
 }
 
 #dots div {
 	position: absolute;
 	background: black;
-	color: white;
+	color: deeppink;
 	border-radius: 10px;
 	width:20px;
 	height:20px;

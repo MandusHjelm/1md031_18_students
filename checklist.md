@@ -32,23 +32,23 @@ Create an index.html file which contains:
 
 Create a style.css file which contains:
 - [ ] A rule to make the allergy information bold
-- [ X] Different text and background color for the two different sections (burger selection and customer information)
-- [ X] Change the cursor when hovering over the order button
-- [ X] Adds margins to the sections and the order button
-- [ X] Add a border to the two sections
-- [ X] Create a header that palces an image behind the headline
-- [ X] Use a grid layout instead of tables for the burger selection section
+- [x] Different text and background color for the two different sections (burger selection and customer information)
+- [x] Change the cursor when hovering over the order button
+- [x] Adds margins to the sections and the order button
+- [x] Add a border to the two sections
+- [x] Create a header that palces an image behind the headline
+- [x] Use a grid layout instead of tables for the burger selection section
 
 
 ## 04 JavaScript
 
 Create a menu.js file which contains:
-- [x ] At least five different burgers with respective attributes
+- [x] At least five different burgers with respective attributes
 
 Create a js_script.js file which contains:
-- [ x] A MenuItem constructor 
-- [ x] A function that defines at least five different burgers using the MenuItem constructor and adds them to an array
-- [ x] A function that loops through the array and inserts the information to the burger selection section of the index.html file
+- [x] A MenuItem constructor 
+- [x] A function that defines at least five different burgers using the MenuItem constructor and adds them to an array
+- [x] A function that loops through the array and inserts the information to the burger selection section of the index.html file
 - [ ] A function that loads the information from the menu.js json object and inserts the information to the burger selection section of the index.html file
 - [ ] Only displays allergy information if relevant (either only if it contains gluten or lactose, or only if it's gluten or lactose free)
 - [ ] Add a checkbox to each menu item
@@ -63,7 +63,7 @@ Create a vue_script.js file which contains:
 
 ## 05 Messaging
 
-- [ ] Exchange the field for the customer's address with the interactive map
+- [x] Exchange the field for the customer's address with the interactive map
 - [ ] Location information from the map should be send to the dispatcher view when pressing the "order" button
 - [ ] In the dispatcher view, you should see the following for every order:
     - [ ] A location on the map

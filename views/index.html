@@ -1,4 +1,4 @@
-<!DOCTYPE html>  <!--cd WebstormProjects/1md031_18_students/  node app.js-->
+<!DOCTYPE html>  <!--  node app.js-->
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" , xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://vuejs.org/js/vue.js"></script>
@@ -82,9 +82,9 @@
             </p>
             <p>
                 <label> Gender<br>
-                    <input v-model="gender" type="radio" name="gender" value="male"> Male<br>
-                    <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
-                    <input v-model="gender" type="radio" name="gender" value="other"> Other
+                    <input v-model="gender" type="radio" name="gender" value="Male"> Male<br>
+                    <input v-model="gender" type="radio" name="gender" value="Female"> Female<br>
+                    <input v-model="gender" type="radio" name="gender" value="Other"> Other
                 </label>
             </p>
         </form>
@@ -92,17 +92,17 @@
     <section>
         <h1> Click in the map! </h1>
         <div class="view-box">
-            <div id="dots" v-on:click="addOrder">
+            <div id="dots" v-on:click="displayOrder">
                 <div
                         v-for="(order, key) in orders"
-                        v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                    {{key}}
+                        v-bind:style="{ left: deliveryLocation.x + 'px', top: deliveryLocation.y + 'px'}">
+                    T
                 </div>
             </div>
         </div>
         <div>
             <button
-                    type="submit" id="orderButton" v-on:click="markDone (key)" v-bind:disabled="formIncomplete"
+                    type="submit" id="orderButton" v-on:click="addOrder (key)" v-bind:disabled="formIncomplete"
                     v-if="checkburg.length>0"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon">
                 Place my order
             </button>
