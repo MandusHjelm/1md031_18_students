@@ -17,10 +17,13 @@ var vm1 = new Vue({
         computed: {
             formIncomplete: function () {
                 this.burgerOrder = this.checkburg
-                return !this.email;
+                return !this.email|| !this.customerName
+            },
+            placeOrder: function () {
+                return this.key;
             }
         },
-        created: function () {
+/*        created: function () {
             socket.on('initialize', function (data) {
                 this.orders = data.orders;
             }.bind(this));
@@ -28,25 +31,8 @@ var vm1 = new Vue({
             socket.on('currentQueue', function (data) {
                 this.orders = data.orders;
             }.bind(this));
-        },
+        },*/
         methods: {
-           // markDone: function () {
-               // console.log("Utskrift från vue vid gbg-knapp tryck"),
-                 //   console.log(this.contaktuppgifter),
-                 //   contaktuppgifter.push(this.customerName) , contaktuppgifter.push(this.email)
-                // this.contaktuppgifter= this.customerName +"  "+ this.email+"   "+ this.payoption+"   " +this.gender,
-                //this.burgerOrder = this.checkburg
-                // socket.emit("addOrder", { musData });
-                //     orderId: "T",
-                //     details: {
-                //         x: event.clientX - 10 - offset.x,
-                //         y: event.clientY - 10 - offset.y
-                //     },
-                //     orderItems: [this.customerName+ "    " + this.email+ "    " +this.gender+ "    " +this.payoption+ "    -" +this.burgerOrder]
-                //});
-
-
-            //},
             //getNext: function () {
             // var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
             //     return Math.max(last, next);
@@ -62,11 +48,11 @@ var vm1 = new Vue({
                 this.deliveryLocation.x = event.clientX - 10 - offset.x;
                 this.deliveryLocation.y = event.clientY - 10 - offset.y;
             },
-            //orderItems: [this.customerName+ "    " + this.email+ "    " +this.gender+ "    " +this.payoption+ "    -" +this.burgerOrder]
             addOrder: function (event) {
                 console.log("Utskrift från vue vid gbg-knapp tryck"),
-                    console.log(this.contaktuppgifter),
-                    contaktuppgifter.push(this.customerName) , contaktuppgifter.push(this.email)
+                console.log(this.contaktuppgifter),
+                contaktuppgifter.push(this.customerName) , contaktuppgifter.push(this.email)
+
             //var offset = {
                     //x: event.currentTarget.getBoundingClientRect().left,
                    // y: event.currentTarget.getBoundingClientRect().top
@@ -79,7 +65,9 @@ var vm1 = new Vue({
                        y: this.deliveryLocation.y,
 
                     },
-                    orderItems: [this.burgerOrder+"    "+ this.email+"    "+this.payoption +"    "+this.gender]
+                    orderItems: [this.burgerOrder],
+                    ordermail:this.email, ordergender:this.gender, orderpay:this.payoption, orderCustName:this.customerName,
+                    //orderItems: [this.customerName+ "    " + this.email+ "    " +this.gender+ "    " +this.payoption+ "    -" +this.burgerOrder]
                 })
             },
 

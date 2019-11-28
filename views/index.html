@@ -1,4 +1,4 @@
-<!DOCTYPE html>  <!--  node app.js-->
+<!DOCTYPE html>  <!--  cd WebstormProjects/1md031_18_students/  node app.js-->
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" , xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://vuejs.org/js/vue.js"></script>
@@ -94,32 +94,33 @@
         <div class="view-box">
             <div id="dots" v-on:click="displayOrder">
                 <div
-                        v-for="(order, key) in orders"
                         v-bind:style="{ left: deliveryLocation.x + 'px', top: deliveryLocation.y + 'px'}">
-                    T
+                        T
                 </div>
             </div>
         </div>
         <div>
             <button
-                    type="submit" id="orderButton" v-on:click="addOrder (key)" v-bind:disabled="formIncomplete"
+                    type="submit" id="orderButton" v-on:click="addOrder (key),placeOrder(key)" v-bind:disabled="formIncomplete"
                     v-if="checkburg.length>0"><img src="img/bilderburg/gbgicon.png" style="width: 5em" alt="icon">
                 Place my order
             </button>
         </div>
 
     </section>
-    <div id="fittneck" v-if="checkburg.length>0">
+    <div id="fittneck" v-if="checkburg.length>0"> <!--!"placeOrder"-->
         <h4>Din order </h4>
+        <h5>Kontrollera att din order är korrekt</h5>
         <ul>
             <li v-for="index in burgerOrder ">
                 {{index}}<br></li>
         </ul>
         <h4> Dina kontaktuppgifter </h4>
-        {{this.customerName}}<br>
-        {{this.email}}<br>
-        {{this.payoption}}<br>
-        {{this.gender}}<br>
+        Ditt namn: {{this.customerName}}<br>
+        Din email: {{this.email}}<br>
+        Ditt val av betalningsmetod: {{this.payoption}}<br>
+        Ditt kön: {{this.gender}}<br>
+        Din leveransposition: X-position: {{this.deliveryLocation.x}}  Y-position:{{this.deliveryLocation.x}}<br>
     </div>
 
 
